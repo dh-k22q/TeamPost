@@ -1,0 +1,23 @@
+### 회원가입
+POST http://localhost:8080/api/member/signup
+Content-type: application/json
+
+{
+  "nickname": "john",
+  "password": "1234",
+  "passwordConfirm": "1234"
+}
+
+### 로그인
+POST http://localhost:8080/api/member/login
+Content-type: application/json
+
+{
+  "nickname": "john",
+  "password": "1234"
+}
+
+
+### 게시글 전체 조회
+GET http://localhost:8080/api/post
+content-type: application/json
