@@ -55,6 +55,7 @@ public class PostService {
         .title(requestDto.getTitle())
         .content(requestDto.getContent())
         .imgUrl(requestDto.getImgUrl())
+        .likeNum(0)
         .member(member)
         .build();
     postRepository.save(post);
@@ -65,6 +66,7 @@ public class PostService {
             .content(post.getContent())
             .author(post.getMember().getNickname())
             .imgUrl(post.getImgUrl())
+            .likeNum(post.getLikeNum())
             .createdAt(post.getCreatedAt())
             .modifiedAt(post.getModifiedAt())
             .build()
@@ -87,6 +89,7 @@ public class PostService {
               .id(comment.getId())
               .author(comment.getMember().getNickname())
               .content(comment.getContent())
+              .likeNum(comment.getLikeNum())
               .createdAt(comment.getCreatedAt())
               .modifiedAt(comment.getModifiedAt())
               .build()
@@ -101,6 +104,7 @@ public class PostService {
             .imgUrl(post.getImgUrl())
             .commentResponseDtoList(commentResponseDtoList)
             .author(post.getMember().getNickname())
+            .likeNum(post.getLikeNum())
             .createdAt(post.getCreatedAt())
             .modifiedAt(post.getModifiedAt())
             .build()

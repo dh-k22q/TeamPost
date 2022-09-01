@@ -21,7 +21,7 @@ public class CommentController {
 
   @RequestMapping(value = "/api/auth/comment", method = RequestMethod.POST)
   public ResponseDto<?> createComment(@RequestBody CommentRequestDto requestDto,
-      HttpServletRequest request) {
+                                      HttpServletRequest request) {
     return commentService.createComment(requestDto, request);
   }
 
@@ -30,15 +30,15 @@ public class CommentController {
     return commentService.getAllCommentsByPost(id);
   }
 
-  @RequestMapping(value = "/api/auth/comment/{id}", method = RequestMethod.PUT)
-  public ResponseDto<?> updateComment(@PathVariable Long id, @RequestBody CommentRequestDto requestDto,
-      HttpServletRequest request) {
-    return commentService.updateComment(id, requestDto, request);
-  }
 
   @RequestMapping(value = "/api/auth/comment/{id}", method = RequestMethod.DELETE)
   public ResponseDto<?> deleteComment(@PathVariable Long id,
-      HttpServletRequest request) {
+                                      HttpServletRequest request) {
     return commentService.deleteComment(id, request);
+  } @RequestMapping(value = "/api/auth/comment/{id}", method = RequestMethod.PUT)
+  public ResponseDto<?> updateComment(@PathVariable Long id, @RequestBody CommentRequestDto requestDto,
+                                      HttpServletRequest request) {
+    return commentService.updateComment(id, requestDto, request);
   }
+
 }

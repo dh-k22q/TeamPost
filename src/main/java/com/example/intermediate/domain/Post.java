@@ -39,6 +39,9 @@ public class Post extends Timestamped {
   @Column(length = 500)
   private String imgUrl;
 
+  @Column
+  private int likeNum;
+
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Comment> comments;
 
@@ -46,6 +49,12 @@ public class Post extends Timestamped {
   @ManyToOne(fetch = FetchType.LAZY)
   private Member member;
 
+  public void like(){
+    this.likeNum +=1;
+  }
+  public void dislike(){
+    this.likeNum -=1;
+  }
 
 
   public void update(PostRequestDto postRequestDto) {
